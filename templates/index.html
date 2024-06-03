@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Տանկերներ</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Տանկերներ</h1>
+    <form action="/edit" method="POST">
+        <table>
+            <thead>
+                <tr>
+                    <th>Անուն</th>
+                    <th>Տեսակը</th>
+                    <th>Քանակը</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in range(14) %}
+                <tr>
+                    {% for j in range(3) %}
+                    <td><input type="text" name="row{{ i }}_col{{ j }}" value="{{ table_data[i][j] }}"></td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <button type="submit">Հաստատել</button>
+    </form>
+</body>
+</html>
