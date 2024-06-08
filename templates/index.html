@@ -20,27 +20,27 @@
     </style>
 </head>
 <body>
-    <h1>Տանկերներ</h1>
+    <h1>Edit Data for 14x3 Table</h1>
     <form action="/edit" method="POST">
         <table>
             <thead>
                 <tr>
-                    <th>Անուն</th>
-                    <th>Տեսակը</th>
+                    <th>Անունը</th>
+                    <th>տեսակը</th>
                     <th>Քանակը</th>
                 </tr>
             </thead>
             <tbody>
-                {% for i in range(14) %}
+                {% for  data in table_data  %}
                 <tr>
-                    {% for j in range(3) %}
-                    <td><input type="text" name="row{{ i }}_col{{ j }}" value="{{ table_data[i][j] }}"></td>
-                    {% endfor %}
+                    <td><input type="text" name="row{{ data.row }}_col0" value="{{ data.col1 }}"></td>
+                    <td><input type="text" name="row{{ data.row }}_col1" value="{{ data.col2 }}"></td>
+                    <td><input type="text" name="row{{ data.row }}_col2" value="{{ data.col3 }}"></td>
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
-        <button type="submit">Հաստատել</button>
+        <button type="submit">Submit</button>
     </form>
 </body>
 </html>
