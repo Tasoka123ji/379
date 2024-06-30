@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Կետեր</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>ԿԵՏԵՐ</h1>
+    <form action="/edit_keter" method="POST">
+        <table>
+            <thead>
+                <tr>
+                    <th>Անունը</th>
+                    <th>ՇԻՇ</th>
+                    <th>ԿԵԳ</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for  data in table_data  %}
+                <tr>
+                    <td><input type="text" name="row{{ data.row }}_col0" value="{{ data.col1 }}"></td>
+                    <td><input type="text" name="row{{ data.row }}_col1" value="{{ data.col2 }}"></td>
+                    <td><input type="text" name="row{{ data.row }}_col2" value="{{ data.col3 }}"></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <button type="submit">Հաստատել</button>
+    </form>
+</body>
+</html>
